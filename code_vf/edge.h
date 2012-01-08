@@ -8,7 +8,7 @@ class Edge
 {
 public:
     Edge();
-	Edge(const Point<T>& origin, const Point<T>& end, const T& size, const T& length = T(0));
+	Edge(const Point<T>& origin, const Point<T>& end, T height = 0, T length = 0);
 	void setOrigin(const Point<T>& point);
 	void setEnd(const Point <T>& point);
 	void setHeight(const T& he);
@@ -26,7 +26,7 @@ private :
 };
 
 template <class T>
-Edge<T>::Edge(const Point<T>& origin, const Point<T>& end, const T& height, const T& length)
+Edge<T>::Edge(const Point<T>& origin, const Point<T>& end, T height, T length)
 : origin(origin), end(end), height(height), length(length)
 {
 }

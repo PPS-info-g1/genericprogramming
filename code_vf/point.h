@@ -3,7 +3,10 @@
 #ifndef POINT_H
 #define POINT_H
 
-template <typename T>
+/**
+ * T : Type of point's coordinate
+ **/
+template <class T = double>
 class Point
 {
 public:
