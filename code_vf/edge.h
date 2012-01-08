@@ -3,41 +3,41 @@
 #ifndef EDGE_H
 #define EDGE_H
 
-template <class T1, class T2, class T3, class T4>
+template <class T>
 class Edge
 {
 public:
     Edge();
-	Edge(const Point<T1>& origin, const Point<T2>& end, const T3& size, const T4& length = T4(0));
-	void setOrigin(const Point<T1>& point);
-	void setEnd(const Point <T2>& point);
-	void setHeight(const T3& he);
-	void setLength(const T4& le);
+	Edge(const Point<T>& origin, const Point<T>& end, const T& size, const T& length = T(0));
+	void setOrigin(const Point<T>& point);
+	void setEnd(const Point <T>& point);
+	void setHeight(const T& he);
+	void setLength(const T& le);
 
-	template<class T5, class T6, class T7, class T8>
-	friend std::ostream& operator <<(std::ostream &Stream, const Edge<T5, T6, T7, T8> &edge);
+	template<class T>
+	friend std::ostream& operator <<(std::ostream &Stream, const Edge<T> &edge);
 
 private :
-	Point<T1> origin;
-	Point<T2> end;
-	T3 height;
-	T4 length;
+	Point<T> origin;
+	Point<T> end;
+	T height;
+	T length;
 
 };
 
-template <class T1, class T2, class T3, class T4>
-Edge<T1, T2, T3, T4>::Edge(const Point<T1>& origin, const Point<T2>& end, const T3& height, const T4& length)
+template <class T>
+Edge<T>::Edge(const Point<T>& origin, const Point<T>& end, const T& height, const T& length)
 : origin(origin), end(end), height(height), length(length)
 {
 }
 
-template <class T1, class T2, class T3, class T4>
-Edge<T1, T2, T3, T4>::Edge() : origin(), end(), height(0), length(0)
+template <class T>
+Edge<T>::Edge() : origin(), end(), height(0), length(0)
 {
 }
 
-template <class T5, class T6, class T7, class T8>
-std::ostream& operator <<(std::ostream &Stream, const Edge<T5, T6, T7, T8> &edge)
+template <class T>
+std::ostream& operator <<(std::ostream &Stream, const Edge<T> &edge)
 {
 	Stream << "origine : " << edge.origin << std::endl;
 	Stream << "end : " << edge.end << std::endl;
@@ -47,32 +47,32 @@ std::ostream& operator <<(std::ostream &Stream, const Edge<T5, T6, T7, T8> &edge
 	return Stream;
 }
 
-template<typename T1, class T2, class T3, class T4>
-void Edge<T1, T2, T3, T4>::setOrigin(const Point<T1>& point)
+template<typename T>
+void Edge<T>::setOrigin(const Point<T>& point)
 {
 	origin = point;
 }
 
-template<typename T1, class T2, class T3, class T4>
-void Edge<T1, T2, T3, T4>::setEnd(const Point <T2>& point)
+template<typename T>
+void Edge<T>::setEnd(const Point <T>& point)
 {
 	end = point;
 }
 
-template<typename T1, class T2, class T3, class T4>
-void Edge<T1, T2, T3, T4>::setHeight(const T3& he)
+template<typename T>
+void Edge<T>::setHeight(const T& he)
 {
 	height = he;
 }
 
-template<typename T1, class T2, class T3, class T4>
-void Edge<T1, T2, T3, T4>::setLength(const T4& le)
+template<typename T>
+void Edge<T>::setLength(const T& le)
 {
 	length = le;
 }
 
-typedef Edge<INTPOINT, INTPOINT, int, int> INTEDGE;
-typedef Edge<FLOATPOINT, FLOATPOINT, float, float> FLOATEDGE;
-typedef Edge<DOUBLEPOINT, DOUBLEPOINT, double, double> DOUBLEEDGE;
+typedef Edge<int> INTEDGE;
+typedef Edge<float> FLOATEDGE;
+typedef Edge<double> DOUBLEEDGE;
 
 #endif

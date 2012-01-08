@@ -3,7 +3,6 @@
 #ifndef POINT_H
 #define POINT_H
 
-
 template <typename T>
 class Point
 {
@@ -16,8 +15,8 @@ public:
 	T	 getX();
 	T	 getY();
 
-	template<typename T2>
-	friend std::ostream& operator <<(std::ostream &Stream, const Point<T2> &point);
+	template<typename T>
+	friend std::ostream& operator <<(std::ostream &Stream, const Point<T> &point);
 
 private:
     T xCoordinate;
