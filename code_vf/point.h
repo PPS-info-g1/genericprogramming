@@ -59,13 +59,13 @@ std::ostream &operator <<(std::ostream &Stream, const Point<T> &point)
 }
 
 template <typename T>
-T getX()
+T Point<T>::getX()
 {
 	return xCoordinate;
 }
 
 template <typename T>
-T getY()
+T Point<T>::getY()
 {
 	return yCoordinate;
 }

@@ -62,7 +62,7 @@ void Edge<T1, T2, T3, T4>::setEnd(const Point <T2>& point)
 template<typename T1, class T2, class T3, class T4>
 void Edge<T1, T2, T3, T4>::setHeight(const T3& he)
 {
-	height = si;
+	height = he;
 }
 
 template<typename T1, class T2, class T3, class T4>
