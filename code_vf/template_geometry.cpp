@@ -1,7 +1,6 @@
 // template_geometry.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include "point.h"
 #include "edge.h"
 //#include "Exemple.h"
@@ -22,7 +21,7 @@ bool adEdge(Point<T2> origine, Point<T3> end, T4 height, T5 length)
 	return true;
 }
 
-int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char* argv[])
 {
 	INTPOINT toto(12, 12);
 	std::cout << toto << std::endl;
