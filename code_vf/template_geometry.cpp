@@ -6,7 +6,8 @@
 #include "point.h"
 #include "edge.h"
 #include "figure.h"
-//#include "Exemple.h"
+
+using namespace meta;
 
 //template <typename T1>
 template <typename T>

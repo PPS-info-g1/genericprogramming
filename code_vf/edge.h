@@ -3,6 +3,9 @@
 #ifndef EDGE_H
 #define EDGE_H
 
+namespace meta
+{
+
 template <class T>
 class Edge
 {
@@ -13,14 +16,10 @@ public:
 	void setOrigin(const Point<T>& point);
 	const Point<T>& getEnd() const { return end; }
 	void setEnd(const Point <T>& point);
+	const T& getHeight() const { return height; }
 	void setHeight(const T& he);
+	const T& getLength() const { return length; }
 	void setLength(const T& le);
-
-	template<class T>
-	friend std::ostream& operator <<(std::ostream &Stream, const Edge<T> &edge);
-
-	template<class T1, class T2>
-	friend bool croise(Edge<T1> edge1, Edge<T2> edge2);
 
 private :
 	Point<T> origin;
@@ -30,8 +29,12 @@ private :
 
 };
 
+template<class T>
+std::ostream& operator <<(std::ostream &Stream, const Edge<T> &edge);
+
 template <class T1, class T2>
-bool croise(Edge<T1> edge1, Edge<T2> edge2){
+bool croise(Edge<T1> edge1, Edge<T2> edge2)
+{
 	return false;
 }
 
@@ -49,10 +52,10 @@ Edge<T>::Edge() : origin(), end(), height(0), length(0)
 template <class T>
 std::ostream& operator <<(std::ostream &Stream, const Edge<T> &edge)
 {
-	Stream << "origine : " << edge.origin << std::endl;
-	Stream << "end : " << edge.end << std::endl;
-	Stream << "height : " << edge.height << std::endl;
-	Stream << "length : " << edge.length;
+	Stream << "origine : " << edge.getOrigin() << std::endl;
+	Stream << "end : " << edge.getEnd() << std::endl;
+	Stream << "height : " << edge.getHeight() << std::endl;
+	Stream << "length : " << edge.getLength();
 
 	return Stream;
 }
@@ -84,5 +87,7 @@ void Edge<T>::setLength(const T& le)
 typedef Edge<int> INTEDGE;
 typedef Edge<float> FLOATEDGE;
 typedef Edge<double> DOUBLEEDGE;
+
+}
 
 #endif

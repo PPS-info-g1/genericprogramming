@@ -6,6 +6,9 @@
 #include "edge.h"
 #include <vector>
 
+namespace meta
+{
+
 template <class T>
 class Figure
 {
@@ -83,6 +86,8 @@ std::size_t Figure<T>::size() const {
 template <class T>
 const Edge<T>& Figure<T>::getEdge(int num) const {
 	return edges_[num];
+}
+
 }
 
 #endif

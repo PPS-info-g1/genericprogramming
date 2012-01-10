@@ -3,6 +3,9 @@
 #ifndef POINT_H
 #define POINT_H
 
+namespace meta
+{
+
 /**
  * T : Type of point's coordinate
  **/
@@ -21,13 +24,13 @@ public:
 	T	 getX() const;
 	T	 getY() const;
 
-	template<typename T>
-	friend std::ostream& operator <<(std::ostream &Stream, const Point<T> &point);
-
 private:
     T xCoordinate;
     T yCoordinate;
 };
+
+template<typename T>
+std::ostream& operator <<(std::ostream &Stream, const Point<T> &point);
 
 
 template <typename T>
@@ -65,7 +68,7 @@ void Point<T>::setXY(const T& x, const T& y)
 template <typename T>
 std::ostream &operator <<(std::ostream &Stream, const Point<T> &point)
 {
-	return Stream << "(" << point.xCoordinate << ", " << point.yCoordinate << ")";
+	return Stream << "(" << point.getX() << ", " << point.getY() << ")";
 }
 
 template <typename T>
@@ -95,5 +98,7 @@ T Point<T>::getY() const
 typedef Point<int> INTPOINT;
 typedef Point<double> DOUBLEPOINT;
 typedef Point<float> FLOATPOINT;
+
+}
 
 #endif
