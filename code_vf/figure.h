@@ -21,6 +21,17 @@ public:
 
 };
 
+template <class T1, class T2>
+bool croise(Figure<T1> figure1, Figure<T2> figure2){
+
+	for(int i = 0; i < figure1.size(); i++)
+		for(int j = 0; j < figure2.size(); j++)
+			if(croise(figure1.getEdge(i), figure2.getEdge(j)))
+				return true;
+
+	return false;
+}
+
 template <class T>
 Figure<T>::Figure(std::vector<Edge<T> > const& edges) : edges_(edges) 
 {
