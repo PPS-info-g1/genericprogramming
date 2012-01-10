@@ -17,6 +17,9 @@ public:
 	template<class T>
 	friend std::ostream& operator <<(std::ostream &Stream, const Edge<T> &edge);
 
+	template<class T1, class T2>
+	friend bool croise(Edge<T1> edge1, Edge<T2> edge2);
+
 private :
 	Point<T> origin;
 	Point<T> end;
@@ -24,6 +27,11 @@ private :
 	T length;
 
 };
+
+template <class T1, class T2>
+bool croise(Edge<T1> edge1, Edge<T2> edge2){
+	return false;
+}
 
 template <class T>
 Edge<T>::Edge(const Point<T>& origin, const Point<T>& end, T height, T length)

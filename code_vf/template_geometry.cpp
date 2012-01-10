@@ -41,14 +41,26 @@ int main(int argc, char* argv[])
 
 	Edge<int> e1(p1, p2);
 	Edge<int> e2(p2, p3);
-	std::vector<Edge<int> > edges;
-	edges.push_back(e1);
-	edges.push_back(e2);
+	std::vector<Edge<int> > edgesInt;
+	edgesInt.push_back(e1);
+	edgesInt.push_back(e2);
 
-	Figure<int> f1(edges);
+	
+	FLOATPOINT p4(12.2, 12.2);
+	FLOATPOINT p5(15.2, 20.9);
+	FLOATPOINT p6(15.0, 17.8);
+	Edge<float> e3(p4, p5);
+	Edge<float> e4(p5, p6);
+	std::vector<Edge<float> > edgesFloat;
+	edgesFloat.push_back(e3);
+	edgesFloat.push_back(e4);
+	
+	Figure<int> f1(edgesInt);
+	Figure<float> f2(edgesFloat);
+
+	croise(f1, f2);
+
 	std::cout << f1.size() << std::endl;
-
-
 	std::cout << "Edge" << std::endl;
 	std::cout << e1 << std::endl;
 
