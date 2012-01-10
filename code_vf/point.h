@@ -11,12 +11,15 @@ class Point
 {
 public:
     Point();
+	Point(const Point<T>& other);
     Point(const T& x, const T& y);
 	void setX(const T& x);
 	void setY(const T& y);
 	void setXY(const T& x, const T& y);
-	T	 getX();
-	T	 getY();
+	bool operator==(const Point<T>& other) const;
+	bool operator!=(const Point<T>& other) const;
+	T	 getX() const;
+	T	 getY() const;
 
 	template<typename T>
 	friend std::ostream& operator <<(std::ostream &Stream, const Point<T> &point);
@@ -29,6 +32,11 @@ private:
 
 template <typename T>
 Point<T>::Point() : xCoordinate(0), yCoordinate(0)
+{}
+
+template <typename T>
+Point<T>::Point(const Point<T>& other)
+: xCoordinate(other.xCoordinate), yCoordinate(other.yCoordinate)
 {}
 
 template <typename T>
@@ -61,13 +69,25 @@ std::ostream &operator <<(std::ostream &Stream, const Point<T> &point)
 }
 
 template <typename T>
-T Point<T>::getX()
+bool Point<T>::operator==(const Point<T>& other) const 
+{
+	return (xCoordinate == other.xCoordinate) && (yCoordinate == other.yCoordinate);
+}
+
+template <typename T>
+bool Point<T>::operator!=(const Point<T>& other) const 
+{
+	return !(*this == other);
+}
+
+template <typename T>
+T Point<T>::getX() const
 {
 	return xCoordinate;
 }
 
 template <typename T>
-T Point<T>::getY()
+T Point<T>::getY() const
 {
 	return yCoordinate;
 }

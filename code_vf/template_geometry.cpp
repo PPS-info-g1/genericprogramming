@@ -26,36 +26,34 @@ bool adEdge(Point<T> origine, Point<T> end, T height, T length)
 
 int main(int argc, char* argv[])
 {
-	INTPOINT p1(12, 12);
-	INTPOINT p2(15, 20);
-	INTPOINT p3(15, 17);
-	std::cout << p1 << std::endl;
-
-	Point<int> point;
-	std::cout << point << std::endl;
-	point.setXY(13.05, 13.05);
-	std::cout << point << std::endl;
-
-	Point<float> test(12.6f, 12.6f);
-	std::cout << test << std::endl;
+	Point<int> p1(0, 0);
+	Point<int> p2(0, 5);
+	Point<int> p3(5, 0);
 
 	Edge<int> e1(p1, p2);
 	Edge<int> e2(p2, p3);
+
+	std::vector<Point<int> > points;
+	points.push_back(p1);
+	points.push_back(p2);
+	points.push_back(p3);
+
 	std::vector<Edge<int> > edges;
 	edges.push_back(e1);
 	edges.push_back(e2);
 
-	Figure<int> f1(edges);
-	std::cout << f1.size() << std::endl;
+	Figure<int> f1(points);
+	Figure<int> f2(edges);
 
+	std::cout << "Debug Figure points constructor:" << std::endl;
+	for(int i=0; i<f1.size(); ++i)
+		std::cout << f1.getEdge(i) << std::endl;
 
-	std::cout << "Edge" << std::endl;
-	std::cout << e1 << std::endl;
+	std::cout << std::endl << "Debug Figure edges constructor:" << std::endl;
+	for(int i=0; i<f2.size(); ++i)
+		std::cout << f2.getEdge(i) << std::endl;
 
-
-	adEdge(point, point, 12, 15);
-
-	system("pause");
+	std::cin.get();
 	return 0;
 }
 

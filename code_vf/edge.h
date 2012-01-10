@@ -9,7 +9,9 @@ class Edge
 public:
     Edge();
 	Edge(const Point<T>& origin, const Point<T>& end, T height = 0, T length = 0);
+	const Point<T>& getOrigin() const { return origin; }
 	void setOrigin(const Point<T>& point);
+	const Point<T>& getEnd() const { return end; }
 	void setEnd(const Point <T>& point);
 	void setHeight(const T& he);
 	void setLength(const T& le);
