@@ -2,8 +2,8 @@
 #ifndef FIGURE_H
 #define FIGURE_H
 
-#include "point.h"
-#include "edge.h"
+#include "point.hpp"
+#include "edge.hpp"
 #include <vector>
 
 namespace meta

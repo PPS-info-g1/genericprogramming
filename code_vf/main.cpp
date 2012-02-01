@@ -1,6 +1,3 @@
-// template_geometry.cpp : Defines the entry point for the console application.
-//
-
 #include <vector>
 #include <iostream>
 #include "point.h"

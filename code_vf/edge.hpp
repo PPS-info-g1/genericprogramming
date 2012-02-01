@@ -1,7 +1,9 @@
 #pragma once
-#include <iostream>
 #ifndef EDGE_H
 #define EDGE_H
+
+#include <iostream>
+#include <point.hpp>
 
 namespace meta
 {

@@ -1,7 +1,8 @@
 #pragma once
-#include <iostream>
 #ifndef POINT_H
 #define POINT_H
+
+#include <iostream>
 
 namespace meta
 {
