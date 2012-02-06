@@ -1,14 +1,38 @@
 #pragma once
 #ifndef POINT_H
 #define POINT_H
-
+#include <cmath>
 #include <iostream>
 
 namespace meta
 {
 
+	// calcul du type de retour de SQRT
+	template<class A1, class A2, bool allSmall>
+	struct sqrt_type_impl
+	{
+		typedef double type;
+	};
+
+	template<class A1, class A2>
+	struct sqrt_type_impl<A1,A2,true>
+	{
+	  typedef float type;
+	};
+
+	template<class A1, class A2>
+	struct sqrt_type_impl<A1,A2,false>
+	{
+	  typedef double type;
+	};
+
+	template<class A1, class A2> 
+	struct  sqrt_type : sqrt_type_impl< A1, A2, ((sizeof(A1)<8) && (sizeof(A2)<8)) >
+	{
+	};		
+	
 /**
- * T : Type of point's coordinate
+ * T : Type of point's coordinate (pourquoi T = double> ? )
  **/
 template <class T = double>
 class Point
@@ -29,6 +53,24 @@ private:
     T xCoordinate;
     T yCoordinate;
 };
+
+// hors de la class
+template<class T , class T2>
+typename sqrt_type<T,T2>::type 
+getDistance(const Point<T>& first ,const Point<T2>& other) 
+{
+		sqrt_type<T,T2> a;
+	 return sqrt
+		 (
+			 (typename sqrt_type<T,T2>::type)
+				(
+				(first.getX() - other.getX()) * 
+				(first.getX() - other.getX()) + 
+				(first.getY() - other.getY()) * 
+				(first.getY() - other.getY())
+				)
+		 );
+}
 
 template<typename T>
 std::ostream& operator <<(std::ostream &Stream, const Point<T> &point);
